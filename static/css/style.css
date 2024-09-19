@@ -1,0 +1,81 @@
+*{
+    margin : 0;
+    padding : 0;
+    font-family: 'poppins',sans-serif;
+    box-sizing: border-box;
+}
+body{
+    background: rgba(0, 0, 0, 0.918);
+}
+
+header{
+    background: white;
+}
+
+.container{
+    max-width: 1440px;
+    padding: 0 50px;
+    margin: 0 auto;
+    
+}
+
+.logo h1{
+    display: block;
+    object-fit: cover;
+    width: 188px;
+    max-width: 100%;
+    text-shadow:0cqmax;
+    box-shadow: black;
+    color: hsla(27, 99%, 49%, 0.968);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    cursor: pointer;
+}
+
+
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.navbar nav{
+    display: flex;
+    align-items: center;
+    padding: 1.5rem 0;
+    
+}
+
+.navbar nav li{
+    list-style: none;
+    margin-left: 1rem;
+}
+
+.navbar nav li a{
+    text-decoration: none;
+    color: rgb(12, 12, 12);
+    font-size: 1.1rem;
+    padding: 0.7rem 0.6rem;
+    border-radius: 6px;
+    transition: all 0.4s ease-in;
+
+}
+
+.navbar nav li a:hover{
+    background: orange;
+}
+
+.navbar nav li b{
+    text-decoration: none;
+    color: white;
+    background-color: orange;
+    font-size: 1.1rem;
+    padding: 0.7rem 0.6rem;
+    border-radius: 6px;
+    transition: all 0.4s ease-in;
+
+}
+.navbar nav li b:hover{
+    background: blueviolet;
+}
