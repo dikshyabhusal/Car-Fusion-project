@@ -1,6 +1,6 @@
 {% extends 'master.html' %}
-{% load static%}
-
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
 
 {% block content %}
 <section >
@@ -51,7 +51,7 @@
     <div class="container_1">
         <!-- Car Image -->
         <div class="car-image">
-            <img src=" " alt="Car">
+            <img src="{% static "images/image2.png" %}" alt="Car">
         </div>
         
         <!-- Services Description -->
@@ -90,7 +90,7 @@
     <div class="car-cards-container">
         <!-- Car Card 1 -->
         <div class="car-card">
-            <img src=" " alt="Audi RS7">
+            <img src="{% static "images/audi.png" %}" alt="Audi RS7">
             <h3>Audi RS7</h3>
             <p class="car-year">2016</p>
             <div class="car-info">
@@ -103,7 +103,7 @@
         </div>
         <!-- Car Card 2 -->
         <div class="car-card">
-            <img src="car2.png" alt="Audi RS7">
+            <img src="{% static "images/audi1.png" %}" alt="Audi RS7">
             <h3>Audi RS7</h3>
             <p class="car-year">2016</p>
             <div class="car-info">
@@ -117,7 +117,7 @@
 
         <!-- Car Card 3 -->
         <div class="car-card">
-            <img src="car3.png" alt="Audi RS7">
+            <img src="{% static "images/audi3.png" %}" alt="Audi RS7">
             <h3>Audi RS7</h3>
             <p class="car-year">2016</p>
             <div class="car-info">
@@ -131,7 +131,7 @@
 
         <!-- Car Card 4 -->
         <div class="car-card">
-            <img src="car4.png" alt="Range Rover Velar">
+            <img src="{% static "images/image2.png" %}" alt="Range Rover Velar">
             <h3>Range Rover Velar</h3>
             <p class="car-year">2020</p>
             <div class="car-info">

@@ -14,7 +14,7 @@ header {
     
 }
 
-.container{
+.container4{
     max-width: 1440px;
     padding: 0 50px;
     margin: 0 auto;
@@ -42,6 +42,8 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-left: 14px;
+    margin-right: 14px;
     
 }
 .navbar nav{
@@ -100,7 +102,7 @@ header {
     transition: all 0.4s ease-in;
 }
 
-section img{
+img{
     position: absolute;
     object-fit: cover;
     top: 0;
@@ -117,6 +119,8 @@ section img{
     height: 100vh;
     color: black;
     font-weight: 800;
+    margin-left: 14px;
+    margin-right: 14px;
 
 }
 
@@ -242,9 +246,12 @@ section img{
 
 /* Car Image Styling */
 .car-image img {
-    max-width: 100%;
-    height: auto;
-}
+    height: 485px;
+    position: relative;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    }
 
 /* Services Description Styling */
 .services-description {
@@ -487,14 +494,234 @@ p {
 }
 
 
+/*contact section */
+
+.container2 {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+
+.contact-section {
+    padding: 50px 0;
+    background-color: #fff;
+}
+
+.contact-section h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.contact-section p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 50px;
+}
+
+.contact-item {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+    width: 30%;
+}
+
+.contact-item i {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.contact-item p {
+    font-size: 16px;
+    color: #666;
+}
+
+.contact-form {
+    width: 60%;
+    margin: auto;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.contact-form .form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.contact-form label {
+    font-size: 14px;
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.contact-form button {
+    padding: 12px 25px;
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: #cc0000;
+}
+
+
+.container3 {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+
+.leadership-section {
+    padding: 50px 0;
+    background-color: #ffffff;
+}
+
+.leadership-section h1 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.leadership-section p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.team-members {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.team-member {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+    width: 30%;
+    text-align: center;
+}
+
+.team-member img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.team-member h3 {
+    font-size: 20px;
+    margin-top: 10px;
+    color: #333;
+}
+
+.team-member p {
+    font-size: 14px;
+    color: #666;
+}
+
+.team-member i {
+    margin-right: 5px;
+    color: #333;
+}
 
 
 
+/* login section 
 
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin: 20px;
+}
 
+.form-box {
+    background-color: #1E429F; 
+    padding: 30px;
+    border-radius: 10px;
+    width: 350px;
+    color: white;
+}
 
+h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
 
+.description {
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: #ddd;
+}
 
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.btn {
+    background-color: #E30613; 
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn:hover {
+    background-color: #C20410;
+}
+
+.alt-action {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.alt-action a {
+    color: white;
+    text-decoration: underline;
+}
+
+*/
 
 
 

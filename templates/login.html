@@ -1,6 +1,28 @@
 {% extends 'master.html' %}
-{% load static%}
+{% load static %}
 
 {%  block content %}
+
+<div class="form-container">
+    <div class="form-box">
+        <h2>Sign up</h2>
+        <p class="description">Aorem ipsum dolor sit amet consectetur. Sollicitudin neque fringilla aliquam mauris elit. Leo vel lorem males</p>
+        <form action="#" method="POST">
+            <label for="signup-name">Name*</label>
+            <input type="text" id="signup-name" name="signup-name" required>
+            
+            <label for="signup-email">Email*</label>
+            <input type="email" id="signup-email" name="signup-email" required>
+            
+            <label for="password">Password*</label>
+            <input type="password" id="password" name="password" required>
+            
+            <button type="submit" class="btn">Sign up</button>
+        </form>
+        <p class="alt-action">Already have an account? <a href="#">Log in</a></p>
+    </div>
+</div>
+
+
 
 {% endblock %}

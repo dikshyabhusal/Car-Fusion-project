@@ -1,8 +1,45 @@
 {% extends 'master.html' %}
-{% load static%}
+{% load static %}
 
 {% block content %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+<section class="services-section">
+    <div class="container_1">
+        <!-- Car Image -->
+        <div class="car-image">
+            <img src="{% static "images/image2.png" %}" alt="Car">
+        </div>
+        
+        <!-- Services Description -->
+        <div class="services-description">
+            <h2>Our Services</h2>
+            
+            <div class="service-item">
+                <div class="service-icon"></div>
+                <div class="service-info">
+                    <h3>Car Hire</h3>
+                    <p>We pride ourselves in always going the extra mile for our customers.</p>
+                </div>
+            </div>
 
+            <div class="service-item">
+                <div class="service-icon"></div>
+                <div class="service-info">
+                    <h3>Car Sales</h3>
+                    <p>We sell the best luxury cars across the world at a competitive price.</p>
+                </div>
+            </div>
+
+            <div class="service-item">
+                <div class="service-icon"></div>
+                <div class="service-info">
+                    <h3>Hire a Driver</h3>
+                    <p>You want to travel and feel comfortable, our drivers are available.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 
 
