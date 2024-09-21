@@ -1,39 +1,86 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>DJ CAR RENTAl</title>
-        <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    </head>
-    <body>
-        <header>
-            <div class="container">
-                <div class="navbar">
-                    <div class="logo">
-                        <h1>DJ CAR RENTAL<spam></spam></h1>
-                    </div>
-                    <nav>
-                        <div class="btn">
-                            <i class="fa fa-times close-btn"></i>
-                        </div>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Our Cars</a></li>
-                        <li><a href="#">About</a></li>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Fusion</title>
+    <link rel="stylesheet" href="{% static 'css/style.css'  %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class ="navbar">
+                <div class="logo">
+                    <span class="car">Car</span><span class="fusion">Fusion</span>
+                </div>
+                <nav>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'service' %}">Services</a></li>
+                    <li><a href="{% url 'blog' %}">Blog</a></li>
+                    <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                <div class="sign-in">
+                    <a href="{% url 'login' %}">Sign In</a>
+                </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    
+
+    {%  block content %}
+        {% endblock %}
+        <footer>
+            <div class="subscription-section">
+                <h2>Subscribe To Our CarFusion</h2>
+                <form>
+                    <input type="email" placeholder="EMAIL" required>
+                    <button type="submit">Next</button>
+                </form>
+            </div>
+            <div class="footer-content">
+                <div class="column">
+                    <h3>Reservation</h3>
+                    <ul>
+                        <li><a href="#">Car Hire</a></li>
+                        <li><a href="#">Modify Or Cancel</a></li>
+                        <li><a href="#">Get A Receipt</a></li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h3>Customer Services</h3>
+                    <ul>
+                        <li><a href="#">Help / FAQS</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Blog</a></li>
                         <li><a href="#">Contact Us</a></li>
-                        <li><b href="#">Sign in </b> </li>
-                        <li><b href="#">Sign up</b></li>
-                    </nav>
-                    <div class="btn">
-                        <i class="fa fa-bars menu-btn"></i>
-                    </div>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Career</a></li>
+                        <li><a href="#">Report & Governance</a></li>
+                    </ul>
                 </div>
             </div>
-        </header>
-        {%  block content %}
-        {% endblock %}
-
-    </body>
+            <div class="footer-bottom">
+                <p>&copy; 2024 CarFusion</p>
+                <div class="social-icons">
+                    <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
+                    <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
+                    <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
+                </div>
+            </div>
+        </footer>
+        
+</body>
 </html>
+
+        
+
+
