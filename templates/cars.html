@@ -1,0 +1,133 @@
+{% extends 'master.html' %}
+{% load static %}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+{%  block content %}
+<main role="main" style="background-color: rgb(200, 200, 200)">
+
+    <section class="jumbotron text-center" style="background-color: rgb(200, 200, 200)">
+        <div class="container">
+            <h1 class="jumbotron-heading" style="font-size:50px">Welcome {{request.user}} !!</h1>
+            <p style="font-size:25px; margin-top:30px">Get wide varieties of cars in affordable prices!!</p>
+            <p>
+            
+            
+            </p>
+        </div>
+        </section>
+    
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #121212; /* Dark background */
+                margin: 0;
+                padding: 0;
+                color: #ffffff; /* White text color */
+            }
+    
+            .album {
+                padding: 5rem 0;
+            }
+    
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+    
+            .row {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+            }
+    
+            .card {
+                border: none;
+                border-radius: 10px;
+                overflow: hidden;
+                transition: transform 0.3s, box-shadow 0.3s;
+                background-color: #1e1e1e; /* Card background color */
+            }
+    
+            .card img {
+                width: 100%;
+                height: 225px;
+                object-fit: cover;
+            }
+    
+            .card-body {
+                padding: 20px;
+                text-align: center;
+            }
+    
+            .card-body h4 {
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+                color: #ff2d00; /* Red color for title */
+            }
+    
+            .card-text {
+                font-size: 1rem;
+                color: #cccccc; /* Light gray for description */
+                margin-bottom: 1rem;
+            }
+    
+            .card-body p {
+                margin: 0.5rem 0;
+                font-weight: bold;
+                color: #ff2d00; /* Red color for price */
+            }
+    
+            .btn-group {
+                display: flex;
+                justify-content: center;
+            }
+    
+            .btn {
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                background-color: #ff2d00; /* Red button */
+                color: white;
+                font-size: 1rem;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+    
+            .btn:hover {
+                background-color: #e61a00; /* Darker red on hover */
+            }
+    
+            .card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Shadow effect on hover */
+            }
+        </style>
+    </head>
+    <body>
+    
+        <div class="album py-5 bg-light" id="1">
+            <div class="container" id="2">
+                <div class="row" id="3">
+                    {% for i in car %}
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            {% load static %}
+                            <img src='/media/{{i.image}}' alt="car" class="d-block w-100">
+                            <div class="card-body">
+                                <h4>{{i.car_name}}</h4>
+                                <p class="card-text">{{i.car_desc}}</p>
+                                <p id="{{i.car_id}}">Price per Day : Rs {{i.price}}</p>
+                                <div class="btn-group" id="8">
+                                    <a type="button" class="btn btn-sm btn-dark" href="\bill" id="rentbtn">RENT</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+            
+
+
+{% endblock %}

@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,12 +19,20 @@
                 </div>
                 <nav>
                     <li><a href="{% url 'home' %}">Home</a></li>
-                    <li><a href="{% url 'service' %}">Services</a></li>
-                    <li><a href="{% url 'blog' %}">Blog</a></li>
-                    <li><a href="{% url 'contact' %}">Contact Us</a></li>
-                <div class="sign-in">
-                    <a href="{% url 'login' %}">Sign In</a>
-                </div>
+                    <li><a href="{% url 'about' %}">Services</a></li>
+                    {%if user.is_authenticated%}
+                    <li><a href="{% url 'vehicles' %}">Our Cars</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                    <div class="sign-in">
+                        <a href="{% url 'signout' %}">Log out</a>
+                    </div>
+                    {%else%}
+                    
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                    <div class="sign-in">
+                        <a href="{% url 'signin' %}">Login</a>
+                    </div>
+                    {% endif %}
                 </nav>
             </div>
         </div>
@@ -55,7 +64,7 @@
                     <ul>
                         <li><a href="#">Help / FAQS</a></li>
                         <li><a href="#">Press</a></li>
-                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Our Cars</a></li>
                         <li><a href="#">Contact Us</a></li>
                     </ul>
                 </div>
@@ -70,10 +79,11 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2024 CarFusion</p>
-                <div class="social-icons">
-                    <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
-                    <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
-                    <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
+                <div class="social_icons">
+                    <a href="#" class="fa fa-facebook"></a>
+                    <a href="#" class="fa fa-twitter"></a>
+                    <a href="#" class="fa fa-instagram"></a>
+                    <a href="#" class="fa fa-pinterest"></a>
                 </div>
             </div>
         </footer>

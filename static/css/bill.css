@@ -1,0 +1,159 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+    color: #343a40;
+    margin: 0;
+    padding: 0;
+}
+
+/* Form Container */
+.login-form-container, .container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* Headings */
+h2.head {
+    font-size: 28px;
+    color: #343a40;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Form Group */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    font-weight: 500;
+    color: #495057;
+    margin-bottom: .5rem;
+}
+
+/* Input Fields */
+input.form-control, select.form-control {
+    border-radius: 6px;
+    border: 1px solid #ced4da;
+    padding: 12px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+input.form-control:focus, select.form-control:focus {
+    border-color: #80bdff;
+    box-shadow: 0px 0px 5px rgba(128, 189, 255, 0.5);
+    outline: none;
+}
+
+/* Buttons */
+button.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+button.btn-primary:hover {
+    background-color: #0056b3;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.4);
+}
+
+button[type="submit"] {
+    margin-top: 20px;
+}
+
+button.close {
+    background: none;
+    border: none;
+    font-size: 24px;
+}
+
+/* Modal Styles */
+.modal-content {
+    border-radius: 12px;
+    padding: 30px;
+    background-color: #f2f5f9;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+    border-bottom: none;
+}
+
+.modal-title {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.modal-body {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Receipt */
+#exampleModalLong h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+#exampleModalLong p {
+    font-size: 20px;
+}
+
+ul.list-group-item {
+    background-color: #fff;
+    font-size: 18px;
+    padding: 20px;
+    border-radius: 6px;
+}
+
+/* Footer */
+.login-footer {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.login-footer a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.login-footer a:hover {
+    text-decoration: underline;
+}
+
+/* Utility */
+.text-center {
+    text-align: center;
+}
+
+.container {
+    padding: 40px 20px;
+    background-color: #ffffff;
+    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+#yo {
+    background-color: #eef2f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+}

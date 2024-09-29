@@ -4,6 +4,7 @@
 
 {% block content %}
 <section >
+    {% include 'messages.html' %}
     <img src="{% static 'images/image_1.png' %}" alt="Luxury Car" class="hero-image">
     <div class="container">
         <div class="content">
@@ -25,25 +26,26 @@
             With over 20 years’ experience in luxury car and customer services, 
             all we need is your ID and you can book any car.
         </p>
-        <div class="last_content">
-            <!-- Location -->
+        <!---<div class="last_content">
+            
             <div class="form-group">
                 <label for="location"><i class="fa fa-map-marker"></i> Location</label>
                 <input type="text" id="location" placeholder="Enter location">
             </div>
-            <!-- Pick up date -->
+            
             <div class="form-group">
                 <label for="pickup-date">Pick up date:</label>
                 <input type="datetime-local" id="pickup-date">
             </div>
-            <!-- Return date -->
+            
             <div class="form-group">
                 <label for="return-date">Return date:</label>
                 <input type="datetime-local" id="return-date">
             </div>
-            <!-- Book button -->
-            <button class="book-btn">Book</button>
-        </div>
+            
+            <button class="book-btn">Book</button>  
+
+        </div> -->
     </div>
 </div>
 

@@ -1,0 +1,39 @@
+{% extends 'master.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css'  %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{%  block content %}
+
+<div class="carzest-container">
+    {% include 'messages.html' %}
+    <div class="carzest-image-section">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp" alt="Team working together">
+    </div>
+    <div class="carzest-form-section">
+        <h2>Create Your Account</h2>
+        <form action="/register" method="POST">
+            {% csrf_token %}
+            <label for="full-name">Full Name</label>
+            <input type="text" id="full-name" name="full_name" placeholder="Enter full name" required>
+
+            <label for="user-name">Username</label>
+            <input type="text" id="user-name" name="user_name" placeholder="Choose a username" required>
+
+            <label for="phone-number">Phone Number</label>
+            <input type="tel" id="phone-number" name="phone_number" placeholder="Eg: 9120001478" required>
+
+            <label for="email-address">Email Address</label>
+            <input type="email" id="email-address" name="email_address" placeholder="Enter email" required>
+
+            <label for="user-password">Password</label>
+            <input type="password" id="user-password" name="user_password" placeholder="Create a password" required>
+
+            <label for="confirm-password">Confirm Password</label>
+            <input type="password" id="confirm-password" name="confirm_password" placeholder="Confirm your password" required>
+
+            <button type="submit">Create Account</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

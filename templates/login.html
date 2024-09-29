@@ -1,28 +1,32 @@
 {% extends 'master.html' %}
 {% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css'  %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% block content %}
 
-{%  block content %}
-
-<div class="form-container">
-    <div class="form-box">
-        <h2>Sign up</h2>
-        <p class="description">Aorem ipsum dolor sit amet consectetur. Sollicitudin neque fringilla aliquam mauris elit. Leo vel lorem males</p>
-        <form action="#" method="POST">
-            <label for="signup-name">Name*</label>
-            <input type="text" id="signup-name" name="signup-name" required>
+<div class="login-form-container">
+    {% include 'messages.html' %}
+    <div class="login-form-content">
+        <h2>Log in to your account</h2>
+        <p class="description">
+            Lorem ipsum dolor sit amet consectetur. Sollicitudin neque fringilla aliquam mauris elit. Leo vel lorem males
+        </p>
+        <form method="post" action="/signin" class="login-form">
+            {% csrf_token %}
             
-            <label for="signup-email">Email*</label>
-            <input type="email" id="signup-email" name="signup-email" required>
+            <!-- Username Input -->
+            <label for="loginusername">Username*</label>
+            <input type="text" id="loginusername" name="loginusername" placeholder="Enter your username" required>
             
-            <label for="password">Password*</label>
-            <input type="password" id="password" name="password" required>
+            <!-- Password Input -->
+            <label for="loginpassword">Password*</label>
+            <input type="password" id="loginpassword" name="loginpassword" placeholder="Enter your password" required>
             
-            <button type="submit" class="btn">Sign up</button>
+            <!-- Submit Button -->
+            <button type="submit" class="login-btn">Sign in</button>
         </form>
-        <p class="alt-action">Already have an account? <a href="#">Log in</a></p>
+        <p class="login-footer">Don't have an account? <a href="/register">Create new</a></p>
     </div>
 </div>
-
-
 
 {% endblock %}
