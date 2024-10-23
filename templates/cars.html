@@ -104,14 +104,12 @@
         </style>
     </head>
     <body>
-    
         <div class="album py-5 bg-light" id="1">
             <div class="container" id="2">
                 <div class="row" id="3">
                     {% for i in car %}
                     <div class="col-md-4">
                         <div class="card mb-4 shadow-sm">
-                            {% load static %}
                             <img src='/media/{{i.image}}' alt="car" class="d-block w-100">
                             <div class="card-body">
                                 <h4>{{i.car_name}}</h4>
@@ -119,6 +117,7 @@
                                 <p id="{{i.car_id}}">Price per Day : Rs {{i.price}}</p>
                                 <div class="btn-group" id="8">
                                     <a type="button" class="btn btn-sm btn-dark" href="\bill" id="rentbtn">RENT</a>
+                                    <a type="button" class="btn btn-sm btn-dark" href="{% url 'add_to_wishlist' i.id %}" id="wishlistbtn">Add to Wishlist</a>
                                 </div>
                             </div>
                         </div>
@@ -127,7 +126,7 @@
                 </div>
             </div>
         </div>
-            
+        
 
 
 {% endblock %}

@@ -23,6 +23,12 @@
                     {%if user.is_authenticated%}
                     <li><a href="{% url 'vehicles' %}">Our Cars</a></li>
                     <li><a href="{% url 'contact' %}">Contact</a></li>
+                    <li>
+                        <form action="{% url 'search_cars' %}" method="GET" class="search-bar">
+                            <input type="text" name="query" placeholder="Search cars..." required>
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                        </form>
+                    </li>
                     <div class="sign-in">
                         <a href="{% url 'signout' %}">Log out</a>
                     </div>
@@ -89,6 +95,10 @@
         </footer>
         
 </body>
+
+{% block javascript %}
+
+{% endblock %}
 </html>
 
         

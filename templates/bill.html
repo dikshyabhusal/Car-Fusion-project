@@ -2,158 +2,101 @@
 
 {% block title %}Vehicles{% endblock title %}
 {%load static%}
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<link rel="stylesheet" href="{%static 'css/bill.css'%}">
+<link rel="stylesheet" href="{%static 'style.css'%}">
 {% block content %}
-<form method="post" action="\bill">
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
+
+    h2 {
+        text-align: center;
+        color: #333;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    label {
+        margin-bottom: 8px;
+        font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="number"],
+    input[type="date"],
+    select {
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    input[type="submit"] {
+        padding: 12px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #218838;
+    }
+
+    @media (max-width: 600px) {
+        .container {
+            padding: 15px;
+        }
+
+        h2 {
+            font-size: 1.5em;
+        }
+    }
+</style>
+<form action="{% url 'pay_now' %}" method="POST">
     {% csrf_token %}
-    <div class="container" id="yo">
-    
-    <div class="cols my-4">
-        <h2 style="text-align : center" class="head my-4">Booking Details</h2>   
-        <div class="form-group col-md-12">
-            <label for="inputEmail4">Full Name : </label>
-            <input type="text" class="form-control" id="billname" name = "billname" placeholder="Full Name">
-        </div>
-        <div class="form-row ">
-            <div class="form-group col-md-6">
-            <label for="billemail">Email : </label>
-            <input type="email" class="form-control" id="billemail" name = "billemail" placeholder="name@gmail.com">
-            </div>
-            <div class="form-group col-md-6">
-            <label for="billphone">Phone Number : </label>
-            <input type="tel" class="form-control" id="billphone" name = "billphone">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="inputAddress">Address</label>
-            <input type="text" class="form-control" id="billaddress" name = "billaddress" placeholder="COEP">
-        </div>
+    <label for="name">Full Name:</label>
+    <input type="text" id="name" name="name" required>
 
-        <div class="form-row">
-            <div class="form-group col-md-6">
-            <label for="inputCity">City</label>
-            <input type="text" class="form-control" id="billcity" name="billcity">
-            </div>
-            <div class="form-group col-md-4">
-            <label for="inputState">State</label>
-            <select id="inputState" class="form-control">
-                <option selected>Choose...</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-            </select>
-            </div>
-            <div class="form-group col-md-2">
-            <label for="inputZip">Zip Code</label>
-            <input type="text" class="form-control" id="inputZip">
-            </div>
-        {% comment %} <p>Price : {{cars.price}}</p> {% endcomment %}
-        </div>  
-        <h2 style="text-align : center" class="head my-4">Car Details</h2>
-        <div class="form-row ">
-            <div class="form-group col-md-6">
-            <label for="cars11">Car Chosen (For Confirmation)</label>
-            <select id="cars11" name = "cars11" class="form-control">
-                <option selected="selected" disabled>Choose...</option>
-                <option value = "Renault">Renault</option>
-                <option value = "Alto 800">Alto 800</option>
-                <option value = "Innova Crysta">Innova Crysta</option>
-                <option value = "Chevy Traverse">Chevy Traverse</option>
-                <option value = "BMW X5">BMW X5</option>
-                <option value = "Honda City">Honda City</option>
-                <option value = "Mercedes Benz">Mercedes Benz</option>
-                <option value = "Swift Dezire">Swift Dezire</option>
-                <option value = "KIA">KIA</option>
-            </select>
-            </div>
-            <div class="form-group col-md-6" >
-            <label for="color1">Color of the car</label>
-            <select id="color1" class="form-control">
-                <option selected>Choose...</option>
-                <option value="Black">Black</option>
-                <option value="Red">Red</option>
-                <option value="White">White</option>
-                <option value="Silver">Silver</option>
-                <option value="Blue">Blue</option>
-            </select>
-            </div>
-        
-        </div>
-        <div class="form-row ">
-            <div class="form-group col-md-6" id="d11">
-            <label for="dayss">No. of days : </label>
-                <input type="number" class="form-control" id="dayss" name ="dayss" min=1 max = 30>
-            </div>
-            <div class="form-group col-md-6">
-            <label for="date">Pickup Date : </label>
-            <input type="date" class="form-control" id="date" name="date">
-            </div>
-        </div>
-        <div class="form-row ">
-            <div class="form-group col-md-6">
-            <label for="fl">From Location: </label>
-            <input type="text" class="form-control" id="fl" name="fl">
-            </div>
-            <div class="form-group col-md-6">
-            <label for="tl">To Location : </label>
-            <input type="text" class="form-control" id="tl" name="tl">
-            </div> 
-        </div>   
-    
-    
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
 
-        <div class="cols1 my-4">
-            <h2 style="text-align : center">Total Bill</h2>
-            <ul class="list-group">
-            <li class="list-group-item d-flex justify-content-between align-items-center my-3" id="rentsec">
-                <p>
-                Total Rent is : Rs <span></span>
-                </p>
-            </li>
-            </ul>
-        </div>
-    </div>
-    </div>
+    <label for="phone">Phone Number:</label>
+    <input type="text" id="phone" name="phone" required>
 
-    <div class="text-center">
-    <button class="btn btn-primary " type="button" data-toggle="modal" data-target="#exampleModalLong" id="showre" onclick="calculate()">Display Bill</button> 
-    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" id="13">
-        <div class="modal-dialog modal-lg modal-dialog-centered" role="document" id="14" style="height:750px">
-        <div class="modal-content" id="15" style="background-color:rgb(226, 239, 251); ">
-            <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalCenterTitle">Receipt : </h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            </div>
-            <div class="modal-body" id="printThis"><h1 style="text-align:center; background: -webkit-linear-gradient(#77f7f1, #094240);-webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;" > Thanks for Booking! </h1><br>
-            <p id="n1" class="p2" style="text-align:center; font-size: 25px; font-weight:bold; color:rgb(35, 12, 109)" >Customer Name :  <span></span></p>
-            <p style="text-align:center"><span id="l1" class="p3" style="text-align:center; font-size: 25px; font-weight:bold ; color:rgb(35, 12, 109)" >From :  <span ></span></span> &nbsp;&nbsp;&nbsp;--------->&nbsp;&nbsp;&nbsp;
-                <span id="l2" class="p3" style="text-align:center; font-size: 25px; font-weight:bold; color:rgb(35, 12, 109)" >To :  <span ></span></span></p>
-                <p id="d2" class="p8" style="text-align:center; font-size: 25px; font-weight:bold; color:rgb(35, 12, 109)" >No. of days for rent :  <span></span></p>
-                <p id="d1" class="p2" style="text-align:center; font-size: 25px; font-weight:bold; color:rgb(35, 12, 109)" >Pickup date :  <span></span></p>
-            
-            <p style="text-align:center; font-size: 23px;">
-            <span style="font-size:30px;font-weight:bold">Car Details :- </span><br><span style="font-weight:bold" id="crs1">Car : <span></span> </span><br><span style="font-weight:bold" id="crs2">Car color  : <span></span> </span><br><br></p>
-            <p id="total" class="p1" style="text-align:center; font-size: 25px; font-weight:bold" >Total Bill: Rs <span>N/A</span></p>
-            
-            </div>
-            <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" id="btnPrint">Download Receipt</button>
-            </div>
-        </div>
-        </div>
-    </div>
-    <button class="btn btn-primary " type="submit"  >Confirm Booking</button>
-        
-    </div>
-    </form>
+    <label for="car">Car Model:</label>
+    <select id="car" name="car" required>
+        <option value="SUV">SUV</option>
+        <option value="Sedan">Sedan</option>
+        <option value="Hatchback">Hatchback</option>
+    </select>
 
+    <label for="days">Number of Days:</label>
+    <input type="number" id="days" name="days_for_rent" min="1" required>
+
+    <label for="date">Pickup Date:</label>
+    <input type="date" id="date" name="pickup_date" required>
+
+    <input type="submit" value="Book Now">
+</form>
     <script>
 
     function calculate(){
@@ -242,8 +185,8 @@
     }
 
     document.getElementById("btnPrint").onclick = function () {
-    printElement(document.getElementById("printThis"));
-}
+        printElement(document.getElementById("printThis"));
+    }
 
 function printElement(elem) {
     var domClone = elem.cloneNode(true);

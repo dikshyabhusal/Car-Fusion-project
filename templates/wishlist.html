@@ -1,0 +1,51 @@
+{% extends 'master.html' %}
+{% block content %}
+
+<main role="main" style="background-color: rgb(200, 200, 200)">
+
+    <section class="jumbotron text-center" style="background-color: rgb(200, 200, 200)">
+        <div class="container">
+            <h1 class="jumbotron-heading" style="font-size:50px">Your Wishlist</h1>
+            <p style="font-size:25px; margin-top:30px">Here are the cars you've added to your wishlist</p>
+        </div>
+    </section>
+    <style>
+        .btn-danger {
+            background-color: #ff2d00;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    
+        .btn-danger:hover {
+            background-color: #e61a00;
+        }
+    </style>
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                {% for item in wishlist_items %}
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                        <img src='/media/{{item.car.image}}' alt="car" class="d-block w-100">
+                        <div class="card-body">
+                            <h4>{{item.car.car_name}}</h4>
+                            <p class="card-text">{{item.car.car_desc}}</p>
+                            <p>Price per Day: Rs {{item.car.price}}</p>
+                            <div class="btn-group">
+                                <a type="button" class="btn btn-sm btn-danger" href="{% url 'remove_from_wishlist' item.car.id %}">Remove</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                <p>No cars in your wishlist.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+</main>
+
+{% endblock %}

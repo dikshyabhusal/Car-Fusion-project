@@ -22,8 +22,9 @@ from django.conf.urls.static import static
 from . import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin-django/', admin.site.urls),
     path('', views.index,name ='home'),
     path('',include('myApp.urls')),
-    path('', TemplateView.as_view(template_name='home.html'), name='home')
+    path('', TemplateView.as_view(template_name='home.html'), name='home'),
+    path('admin/',include('admin_dash.urls')),
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

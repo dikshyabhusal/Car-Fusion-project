@@ -1,0 +1,86 @@
+{% extends 'master.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css'  %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% block content %}
+<div class="container">
+    <h2>Pay Now</h2>
+    <p>Pay for your car rental using Khalti or Cash.</p>
+
+    <!-- Khalti Payment Button -->
+    <button id="payment-button">Pay with Khalti</button>
+
+    <!-- Cash Payment Button -->
+    <button id="cash-button">Pay with Cash</button>
+
+    <!-- Placeholder for the bill and success message -->
+    <div id="bill" style="display: none; margin-top: 20px;">
+        <h3>Booking Bill</h3>
+        <p>Car Rental Details:</p>
+        <ul>
+            <li>Car: Car Model Name</li>
+            <li>Rental Duration: 3 days</li>
+            <li>Total Price: NPR 10,000</li>
+        </ul>
+        <p>Thank you for choosing the cash option. Your booking is successful!</p>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+<script src="https://khalti.com/static/khalti-checkout.js"></script>
+<script>
+    // Khalti Configuration
+    var config = {
+        publicKey: "YOUR_KHALTI_PUBLIC_KEY",
+        productIdentity: "car_rental_booking",
+        productName: "Car Rental",
+        productUrl: "http://yourdomain.com/car-rental",
+        eventHandler: {
+            onSuccess (payload) {
+                // Send payment details to server for verification
+                fetch("{% url 'khalti_payment_verification' %}", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-CSRFToken": "{{ csrf_token }}"
+                    },
+                    body: JSON.stringify(payload)
+                }).then(response => response.json()).then(data => {
+                    if (data.success) {
+                        alert('Payment successful!');
+                        window.location.href = "{% url 'payment_success' %}";
+                    } else {
+                        alert('Payment failed!');
+                    }
+                });
+            },
+            onError (error) {
+                alert('Error: ' + error.message);
+            },
+            onClose () {
+                console.log('widget is closing');
+            }
+        }
+    };
+
+    var checkout = new KhaltiCheckout(config);
+    var khaltiButton = document.getElementById("payment-button");
+
+    // Khalti Button Click
+    khaltiButton.onclick = function () {
+        alert('Khalti button clicked!');
+        checkout.show({amount: 10000});  // Amount in paisa (e.g., 10000 = NPR 100)
+    }
+
+    // Cash Button Click
+    var cashButton = document.getElementById("cash-button");
+    var bill = document.getElementById("bill");
+
+    cashButton.onclick = function() {
+        // Display the booking bill and success message
+        bill.style.display = "block";
+        alert('Booking Successful! You have chosen to pay with cash.');
+    }
+</script>
+{% endblock %}

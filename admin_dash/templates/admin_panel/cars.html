@@ -1,0 +1,97 @@
+{% extends  'admin_panel/master.html' %}
+{%  load static %}
+
+{% block contents %} 
+
+<div class="container mt-5">
+  <div class="row tm-content-row">
+    <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8 tm-block-col">
+      <div class="tm-bg-primary-dark tm-block tm-block-cars">
+        <div class="tm-car-table-container">
+          <!-- Add the form for deletion -->
+          <form method="POST" action="{% url 'delete_selected_cars' %}">
+            {% csrf_token %}
+            <table class="table table-hover tm-table-small tm-car-table">
+              <thead>
+                <tr>
+                  <th scope="col">&nbsp;</th>
+                  <th scope="col">car NAME</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">IN STOCK</th>
+                  <th scope="col">carmodel</th>
+                  <th scope="col">&nbsp;</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for i in car %}
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            {% load static %}
+                            <img src='/media/{{i.image}}' alt="car" class="d-block w-100">
+                            <div class="card-body">
+                                <h4>{{i.car_name}}</h4>
+                                <p class="card-text">{{i.car_desc}}</p>
+                                <p id="{{i.car_id}}">Price per Day : Rs {{i.price}}</p>
+                                <div class="btn-group" id="8">
+                                    <a type="button" class="btn btn-sm btn-dark" href="\bill" id="rentbtn">RENT</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+              </tbody>
+            </table>
+
+            <!-- Button to submit selected cars for deletion -->
+            <button type="submit" class="btn btn-primary btn-block text-uppercase">
+              Delete selected cars
+            </button>
+          </form>
+        </div>
+        <!-- table container -->
+        <a
+          href="{% url 'add_car' %}"
+          class="btn btn-primary btn-block text-uppercase mb-3">Add new car</a>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 tm-block-col">
+      <div class="tm-bg-primary-dark tm-block tm-block-car-categories">
+        <h2 class="tm-block-title">Car Categories</h2>
+        <div class="tm-car-table-container">
+          <table class="table tm-table-small tm-car-table">
+            {% for carmodel in categories %}
+            <tbody>
+              <tr>
+                <td class="tm-car-name">{{ carmodel.name }}</td>
+                <td class="text-center">
+                  <a href="#" class="tm-car-delete-link">
+                    <i class="far fa-trash-alt tm-car-delete-icon"></i>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+            {% endfor %}
+          </table>
+        </div>
+        <!-- table container -->
+        <a
+        href="{% url 'admin_add_carmodel' %}"
+        class="btn btn-primary btn-block text-uppercase mb-3">Add new carmodel</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script>
+      $(function() {
+        $(".tm-car-name").on("click", function() {
+          window.location.href = "edit-car.html";
+        });
+      });
+    </script>
+{% endblock %}
